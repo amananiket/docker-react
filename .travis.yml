@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+
+before_install:
+  - docker build -t aaniket/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run aaniket/docker-react npm run test -- --coverage
